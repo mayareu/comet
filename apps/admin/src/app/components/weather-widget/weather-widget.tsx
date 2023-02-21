@@ -43,6 +43,7 @@ export const WeatherWidget: FC<WeatherWidgetProps> = ({ lat, long }) => {
       });
     };
     lat && long && fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lat, long]);
 
   return (

@@ -2,8 +2,10 @@
   "name": "comet",
   "version": "0.0.0",
   "license": "MIT",
+  "homepage": "https://mayareu.github.io/comet",
   "scripts": {
-    "predeploy": "npm run build -- --prod --baseHerf=https://mayareu.github.io/comet.git"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "private": true,
   "dependencies": {

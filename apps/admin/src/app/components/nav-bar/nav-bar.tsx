@@ -1,5 +1,5 @@
 import { NavRoute } from '@comet/types';
-import { Box, Tab, Tabs, styled, useTheme } from '@mui/material';
+import { Box, Tab, Tabs, styled } from '@mui/material';
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
