@@ -5,12 +5,11 @@
   "homepage": "https://mayareu.github.io/comet",
   "scripts": {
     "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "build": "nx build --buildLibsFromSource",
+    "predeploy": "npm run build -- --prod --baseHref=/comet/",
+    "deploy": "gh-pages -d dist/apps/admin"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
