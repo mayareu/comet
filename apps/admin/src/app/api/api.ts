@@ -20,13 +20,16 @@ export const getLocations = (searchStr = ''): Promise<ForecastLocation[]> => {
 };
 
 export const getCitiesList = (): Promise<ForecastLocation[]> => {
-  return fetch('assets/cities.json')
-    .then((response) => {
-      return response.json();
-    })
-    .then((data: any[]) => {
-      return data.map((location) => location as ForecastLocation);
-    });
+  return (
+    fetch('assets/cities.json')
+      .then((response) => {
+        return response.json();
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .then((data: any[]) => {
+        return data.map((location) => location as ForecastLocation);
+      })
+  );
 };
 export const getWeather = (
   lat: number,
