@@ -1,6 +1,5 @@
 import { CurrentWeatherData, ForecastLocation } from '@comet/types';
-const REACT_APP_API_URL = 'https://api.openweathermap.org/data/2.5';
-const REACT_APP_API_KEY = process.env['REACT_APP_API_KEY'];
+const openWeatherAPI = 'https://api.openweathermap.org/data/2.5';
 
 export const getLocations = (searchStr = ''): Promise<ForecastLocation[]> => {
   return fetch('assets/cities.json')
@@ -36,7 +35,7 @@ export const getWeather = (
   long: number
 ): Promise<CurrentWeatherData> => {
   return fetch(
-    `${REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${REACT_APP_API_KEY}`
+    `${openWeatherAPI}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.NX_APP_API_KEY}`
   )
     .then((response) => {
       return response.json();
@@ -62,9 +61,9 @@ export const getMultipuleLocationsWeather = (
   locations: number[]
 ): Promise<CurrentWeatherData[]> => {
   return fetch(
-    `${REACT_APP_API_URL}/group?id=${locations.join(
-      ','
-    )}&units=metric&APPID=${REACT_APP_API_KEY}`
+    `${openWeatherAPI}/group?id=${locations.join(',')}&units=metric&APPID=${
+      process.env.NX_APP_API_KEY
+    }`
   )
     .then((response) => {
       return response.json();
